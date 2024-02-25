@@ -24,7 +24,7 @@ supabase = init_connection()
 # Return all data
 
 
-@st.cache_data(ttl=600)  # cache clears after 10 minutes
+@st.cache_resource 
 def run_query():
     # return all data
     return supabase.table('car_parts_monthly_sales').select("*").execute()
